@@ -1,0 +1,211 @@
+body{
+	margin:0px;
+	padding:0px;
+	background:#f8f8f8;
+}
+.container{
+ width:100%;
+ height:100%;
+ padding:0px;
+}
+.top-bar{
+	padding-left:2%;
+	color:green;
+}
+.lbl-tb{
+	color:#b52e31;
+}
+.header{
+    width:100%;
+    height:100px;
+    background:#337ab7;
+    padding-left:2%;
+}
+.title{
+	width:28%;
+	height:80%;
+	float:left;
+	
+}
+#title-style{
+	color:#fff;
+	font-family: 'Raleway', sans-serif;
+}
+.nav{
+	width:70%;
+	height:80%;
+	float:right;
+	padding-top:1%;
+}
+
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+}
+
+#menu li {
+    display:inline-block;
+    float: left;
+    margin-right:10px;
+}
+.active{
+	background-color: #b52e31;
+}
+li a {
+    display:block;
+    min-width:140px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: Helvetica;
+    color: #000;
+    background: #fff;
+    text-decoration: none;
+}
+
+li:hover a {
+    background: #b52e31;
+}
+
+.image-wp{
+	width:100%;
+	height:500px;
+}
+.welcome{
+	width:100%;
+	height:250px;
+	background:#fff;
+	margin-top:20px;
+}
+.left-welcome{
+	float:left;
+    width:35%;
+    height:90%;
+    padding-left:2%;
+}
+.right-welcome{
+	float:right;
+	width:60%;
+	height:90%;
+	padding-top:5%;
+	padding-right:2%;
+}
+.today-meals{
+	width:100%;
+	height:350px;
+	background:#fff;
+	margin-top:20px;
+	padding-left:2%;
+	padding-top:1%;
+    margin-bottom:20px;
+}
+.welcome-note{
+	font-size:120%;
+	color:#808080;
+}
+.values{
+	color:#808080;
+	font-size:110%;
+}
+.set-1{
+	width:47%;
+	float:left;
+	height:90%;
+    padding-left:2%;
+    padding-top:1%;
+    
+}
+.set-2{
+
+	float:right;
+	width:45%;
+    height:90%;
+    padding-left:2%;
+     padding-top:1%;
+     padding-right:3%;
+}
+.meal-1{
+	float:left;
+	width:45%;
+	height:80%;
+	
+}
+.meal-2{
+	float:right;
+	width:45%;
+	height:80%;
+
+}
+.footer{
+	width:100%;
+	height:100px;
+	padding-left:2%;
+	padding-right:2%;
+	background:#000;
+	color:#fff;
+}
+
+.signin{
+	width:50%;
+	height:400px;
+	background:#fff;
+	margin-top:10%;
+	margin-left:20%;
+	padding-top:2%;
+	padding-left:10%;
+}
+
+.signup{
+	width:50%;
+	height:550px;
+	background:#fff;
+	margin-top:5%;
+	margin-left:20%;
+	padding-top:2%;
+	padding-left:10%;
+}
+.text-style{
+   width:60%;
+   height:10%;
+
+}
+.s-btn{
+	width:20%;
+	height:10%;
+	color:#fff;
+	border-radius:2px;
+	background:#b52e31
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+.t-h{
+	background:#b52e31;
+	color:#fff;
+}
+.setup{
+	width:50%;
+	height:200px;
+	background:#fff;
+	padding-top:2%;
+	padding-left:10%;
+    border:2px solid #d8d8d8;
+}
+.meals-table{
+	float:left;
+	width:55%;
+
+}
+.add-meal{
+	float:right;
+	width:35%;
+    padding-left:2%;
+    border:2px solid #d8d8d8;
+    padding-bottom:2%;
+}
