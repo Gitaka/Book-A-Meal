@@ -65,18 +65,15 @@ class ApiEndPointsTest(unittest.TestCase):
 			       data = data)
 		self.assertEquals(response.status_code,200)
 
-	def login(self,token):
-		#user login with a token sent to request header
-		self.test_app = app.test_client()
-		return self.test_app.post('/api/v1/auth/login',
-			   data={"username":"gitaka","password":"pass"},headers={'token':'aaaaa'})
+
 
 	def test_login(self):
-		res = self.login('token')
-		message = {
-		    "message":"User logged in successfully"
+		data = {
+		      "username":"gitaka",
+		      "password":"pass"
 		}
-		self.assertEquals(res,message)
+		response = self.app.post('/api/v1/auth/login',data = data, headers={"token":"C0G1Q5GZ81"})
+		self.assertEquals(response.status_code,200)
 
 	def test_add_user(self):
 		data = {
