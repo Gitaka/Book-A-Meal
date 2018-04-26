@@ -1,4 +1,5 @@
 from app import app
+from flask import request,jsonify
 from flask_restful import Api
 from app.resources.meals import Meals
 from app.resources.menu import Menu
@@ -17,6 +18,18 @@ api.add_resource(Auth,'/api/v1/auth/login')
 def hello():
 
     return "Book-A-Meal application"
+
+#handling HTTP error codes
+@app.errorhandler(404)
+def not_found(error=None):
+	message = {
+	    'status':404,
+	    'message':'Page Not Found for:' + request.url,
+	}
+
+	response = jsonify(message)
+	response.status_code = 404
+	return response
  
 if __name__ == "__main__":
     app.run()

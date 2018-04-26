@@ -1,18 +1,24 @@
 from flask_restful import Resource
-from flask import request,jsonify
+from flask import request,jsonify,abort
 
 class Orders(Resource):
 	def __init__(self):
 		#list to hold caterer id and token
-		self.caterer = [{"id":0,"token":"aaaaa"}]
+		self.caterer = [
+		                {"id":0,"email":"gitakaMuchai@BookAMeal.com","password":"KY2W","token":"MDVXYGZXBO","access":"0"},
+		]
 
-		self.orders = [{'id':0,"user":'1',"description":"Rice beed","cost":'450'},
+		self.orders = [
+		               {'id':0,"user":'1',"description":"Rice beed","cost":'450'},
                        {'id':2,"user":"2","description":"Chapati beef","cost":"300"}
 		]
 
 	def get(self):
 		#extract the token from the request header
-		token = request.headers['token']
+		if 'token' in request.headers:
+			token = request.headers['token']
+		else:
+			abort(404)
 		#authenticate the token
 		for cater in self.caterer:
 			if cater['token'] == token:

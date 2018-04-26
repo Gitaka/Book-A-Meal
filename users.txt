@@ -1,0 +1,2 @@
+{'email': 'bc-nigeria-27@gmail.com', 'id': '5', 'access': '1', 'password': '0ACH', 'token': 'BNV65U1JXB'}
+{'email': 'bc-nairobi-27@gmail.com', 'id': '3', 'access': '1', 'password': 'SHFM', 'token': 'SZ26LT5EA7'}

@@ -1,26 +1,31 @@
 from flask_restful import Resource
-from flask import request,jsonify
+from flask import request,jsonify,abort
 
 
 class Meals(Resource):
 	def __init__(self):
 
-		self.caterer = [{'id':0,'token':"aaaaa"}]
-		self.meals = [{'id':0,'name':'Expresso','ingredients':'coffee','meal':'breakfast'},
-		{'id':1,'name':'Githeri','ingredients':'maize,beans','meal':'lunch'},
-		{'id':2,'name':'Tilapia','ingredients':'fish','meal':'lunch'},
-		{'id':3,'name':'Ugali','ingredients':'maize','meal':'supper',},
-		{'id':4,'name':'Rice beef','ingredients':'rice,beef','meal':'lunch'},
-		{'id':5,'name':'Chapati beef','ingredients':'chapati beef','meal':'supper'},
-		{'id':6,'name':'Mukimo','ingredients':'maize,potatoe','meal':'supper'}
-
+		self.caterer = [
+		                {"id":0,"email":"gitakaMuchai@BookAMeal.com","password":"KY2W","token":"MDVXYGZXBO","access":"0"},
+		]
+		self.meals = [
+		              {'id':0,'name':'Expresso','ingredients':'coffee','meal':'breakfast'},
+		              {'id':1,'name':'Githeri','ingredients':'maize,beans','meal':'lunch'},
+		              {'id':2,'name':'Tilapia','ingredients':'fish','meal':'lunch'},
+		              {'id':3,'name':'Ugali','ingredients':'maize','meal':'supper',},
+		              {'id':4,'name':'Rice beef','ingredients':'rice,beef','meal':'lunch'},
+		              {'id':5,'name':'Chapati beef','ingredients':'chapati beef','meal':'supper'},
+		              {'id':6,'name':'Mukimo','ingredients':'maize,potatoe','meal':'supper'}
 
 		]
 
 	
 	def get(self):
 		#extract the token from the request header
-		token = request.headers['token']
+		if 'token' in request.headers:
+			token = request.headers['token']
+		else:
+			abort(404)
 		#authenticate the token
 		for cater in self.caterer:
 			if cater['token'] == token:
@@ -30,7 +35,10 @@ class Meals(Resource):
 		
 
 	def post(self):
-		token = request.headers['token']
+		if'token' in request.headers:
+			token = request.headers['token']
+		else:
+			abort(404)
 		for cater in self.caterer:
 			if cater['token'] == token:
 				meals = self.meals
@@ -44,7 +52,7 @@ class Meals(Resource):
 		if 'token' in request.headers:
 			token = request.headers['token']
 		else:
-			return "404 not found"
+			abort(404)
 
 		for cater in self.caterer:
 			if cater['token'] == token:
