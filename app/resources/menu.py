@@ -25,14 +25,27 @@ class Menu(Resource):
 		if 'token' in request.headers:
 			uId = request.headers['token']
 		else:
-			abort(404)
+			message = {
+			          'status':401,
+			          'message':'Unauthorized access',
+			          'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
+
 		#check if user is authenticated
 		for user in self.authUsers:
 			if user['token'] == uId:
 				return jsonify(self.menu)
-
-		return {"Error":"User not authenticated"}
-
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'User not found'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401		
+		return auth_resp
 
 
 	def post(self):
@@ -42,11 +55,27 @@ class Menu(Resource):
 		if 'token' in request.headers:
 			token = request.headers['token']
 		else:
-			abort(404)
+			message = {
+			          'status':401,
+			          'message':'Unauthorized access',
+			          'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
+
 		for cater in self.caterer:
 			if cater['token'] == token:
 				#add menu to menu list
 				self.menu.append(data)
 
 				return jsonify(self.menu)
-		return {"Error":"Not authorised"}
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'User not found'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401		
+		return auth_resp
+

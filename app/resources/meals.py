@@ -25,26 +25,58 @@ class Meals(Resource):
 		if 'token' in request.headers:
 			token = request.headers['token']
 		else:
-			abort(404)
+			message = {
+			          'status':401,
+			          'message':'Unauthorized access',
+			          'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
+
 		#authenticate the token
 		for cater in self.caterer:
 			if cater['token'] == token:
-				#show admin the order routes
+				#show admin the meals
 				return  jsonify(self.meals)
-		return {"Error":"UnAuthorized access"}		
+
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'User not found'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401		
+		return auth_resp		
 		
 
 	def post(self):
 		if'token' in request.headers:
 			token = request.headers['token']
 		else:
-			abort(404)
+			message = {
+			        'status':401,
+			        'message':'Unauthorized access',
+			        'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
+
 		for cater in self.caterer:
 			if cater['token'] == token:
 				meals = self.meals
 				meals.append(request.get_json(force=True))
 				return jsonify(meals)
-		return {"Error":"UnAuthorized access"}	
+
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'User not found'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401	
+		return auth_resp
 
 
 	def put(self,mealId):
@@ -52,7 +84,14 @@ class Meals(Resource):
 		if 'token' in request.headers:
 			token = request.headers['token']
 		else:
-			abort(404)
+			message = {
+			        'status':401,
+			        'message':'Unauthorized access',
+			        'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
 
 		for cater in self.caterer:
 			if cater['token'] == token:
@@ -68,18 +107,28 @@ class Meals(Resource):
 						meal['name'] = data['name']
 				return jsonify(self.meals)
 
-		return {"Error":'UnAuthorized access'}
-
-
-
-
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'User not found'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401	
+		return auth_resp
 
 	def delete(self,mealId):
 		#if no token header exists give a 404 error
 		if 'token' in request.headers:
 			token = request.headers['token']
 		else:
-			return "404 not found"
+			message = {
+			        'status':401,
+			        'message':'Unauthorized access',
+			        'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
 
 		for cater in self.caterer:
 			if cater['token'] == token:
@@ -87,9 +136,22 @@ class Meals(Resource):
 				for meal in self.meals:
 					if meal['id'] == mealId:
 						del self.meals[meal['id']]
-				return jsonify(self.meals)
+				delMessage = {
+				            'status':200,
+				            'message':'Meal deleted successfully'
+				}
+				delResp = jsonify(delMessage)
+				delResp.status_code = 200
+				return delResp
 
-		return {"Error":'UnAuthorized access'}
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'User not found'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401	
+		return auth_resp
 
 
 

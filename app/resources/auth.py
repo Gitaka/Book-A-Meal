@@ -16,7 +16,15 @@ class Auth(Resource):
 		if 'token' in request.headers:
 			token = request.headers['token']
 		else:
-			return{"Error":"404 not found"}
+			message = {
+			         'status':401,
+			         'message':'Unauthorized access',
+			         'Error':'No access Token in headers'
+			}
+			resp = jsonify(message)
+			resp.status_code = 401
+			return resp
+
 		#read all the users from the text file and put them in a list
 		#authenticate the sent token by searching it in the returned list above
 		authUsers = []
@@ -30,7 +38,16 @@ class Auth(Resource):
 				logInDetails = request.get_json(force=True)
 				return {"message":"User Logged in Successfully"}
 		#return error if user not found
-		return {"message":"Email or Password incorrect"}
+		message = {
+		         'status':401,
+		         'message':'Unauthorized access',
+		         'Error':'Incorrect password/email'
+		}
+		auth_resp = jsonify(message)
+		auth_resp.status_code = 401		
+		return auth_resp
+
+
 
 		
 
