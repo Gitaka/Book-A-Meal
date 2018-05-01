@@ -1,3 +1,5 @@
 {'email': 'bc-nigeria-27@gmail.com', 'id': '5', 'access': '1', 'password': '0ACH', 'token': 'BNV65U1JXB'}
 {'email': 'bc-nairobi-27@gmail.com', 'id': '3', 'access': '1', 'password': 'SHFM', 'token': 'SZ26LT5EA7'}
 {'email': 'janeJohnDoe@gmail.com', 'id': '0', 'access': '1', 'password': 'TNCE', 'token': '0RDZHYZURA'}
+{'email': 'janeDoe@gmail.com', 'id': '5', 'access': '1', 'password': 'SB5H', 'token': 'D1N9E7BINH'}
+{'email': 'JamesKinyua@gmail.com', 'id': '6', 'access': '1', 'password': 'T75M', 'token': 'QTP176FJSG'}
