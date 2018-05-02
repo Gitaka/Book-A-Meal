@@ -24,7 +24,8 @@ Travis CI Badge:
 [![Build Status](https://travis-ci.org/Gitaka/Book-A-Meal.svg?branch=f_jwt_auth_v1)](https://travis-ci.org/Gitaka/Book-A-Meal)
 
 Test Coverage Report with Coveralls:
-[![Coverage Status](https://coveralls.io/repos/github/Gitaka/Book-A-Meal/badge.svg?branch=master)](https://coveralls.io/github/Gitaka/Book-A-Meal?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Gitaka/Book-A-Meal/badge.svg?branch=f_jwt_auth_v1)](https://coveralls.io/github/Gitaka/Book-A-Meal?branch=f_jwt_auth_v1)
+
 
 
 
